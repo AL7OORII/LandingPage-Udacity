@@ -98,4 +98,10 @@ window.addEventListener('scroll', () => {
   }, 2000);
 });
 
+// ===== Mobile Menu: Toggle navbar on hamburger click =====
+const hamburger = document.getElementById('hamburger');
+
+hamburger.addEventListener('click', () => {
+  navList.classList.toggle('show');
+});
 
