@@ -1,8 +1,8 @@
-
 // ===== Global Variables =====
 const sections = document.querySelectorAll('section');
 const navList = document.getElementById('navbar__list');
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+const hamburger = document.getElementById('hamburger');
 
 // ===== Helper Functions =====
 
@@ -11,7 +11,6 @@ function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return rect.top >= -200 && rect.top <= 150;
 }
-
 
 // Build Navigation Bar Dynamically
 function buildNav() {
@@ -48,6 +47,11 @@ function scrollToSection(event) {
   if (event.target.nodeName === 'A') {
     const targetSection = document.querySelector(event.target.getAttribute('href'));
     targetSection.scrollIntoView({ behavior: 'smooth' });
+
+    // Close hamburger menu on mobile after click
+    if (window.innerWidth <= 768) {
+      navList.classList.remove('show');
+    }
   }
 }
 
@@ -68,6 +72,7 @@ function scrollToTop() {
   });
 }
 
+// ===== Event Listeners =====
 
 // Build navigation when DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -86,22 +91,7 @@ navList.addEventListener('click', scrollToSection);
 // Add click event for scroll to top button
 scrollToTopBtn.addEventListener('click', scrollToTop);
 
-// Auto-hide navbar
-
-let isScrolling;
-window.addEventListener('scroll', () => {
-  document.querySelector('header').style.top = '0';
-
-  window.clearTimeout(isScrolling);
-  isScrolling = setTimeout(() => {
-    document.querySelector('header').style.top = '-80px'; // hide navbar
-  }, 2000);
-});
-
-// ===== Mobile Menu: Toggle navbar on hamburger click =====
-const hamburger = document.getElementById('hamburger');
-
+// Add click event to toggle hamburger menu
 hamburger.addEventListener('click', () => {
   navList.classList.toggle('show');
 });
-

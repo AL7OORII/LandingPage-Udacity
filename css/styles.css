@@ -131,34 +131,39 @@ section.active-section {
 }
 
 /* Hamburger Icon */
-.hamburger {
-  font-size: 2rem;
+#hamburger {
+  display: none;
+  font-size: 28px;
   cursor: pointer;
-  display: none; /* Hidden on desktop */
-  user-select: none;
+  margin-right: 1rem;
+  color: #fff;
 }
 
-/* Mobile styles */
+/* Responsive Navbar */
 @media screen and (max-width: 768px) {
-  .hamburger {
-    display: block; /* Show hamburger on mobile */
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
   }
 
   #navbar__list {
-    display: none; /* Hide nav by default on mobile */
     flex-direction: column;
-    align-items: center;
     position: absolute;
-    top: 60px;
-    right: 10px;
+    top: 60px; /* below header */
+    left: 0;
+    width: 100%;
     background-color: #333;
-    padding: 1rem;
-    border-radius: 5px;
-    width: 200px;
+    display: none;
+    padding: 1rem 0;
   }
 
   #navbar__list.show {
-    display: flex; /* Show nav when toggled */
+    display: flex;
+  }
+
+  #hamburger {
+    display: block;
   }
 }
-
