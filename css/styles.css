@@ -221,7 +221,7 @@ button:hover {
   color: #fff;
 
   /* Background image */
-  background: url("../images/womancoding.jpg") no-repeat center center/cover;
+  background: url("../Images/womancoding.jpg") no-repeat center center/cover;
 
   /* Remove previous section styles */
   margin-top: 0;         /* remove margin pushing down */
@@ -411,7 +411,7 @@ button:hover {
   color: #fff;
 
   /* Background image */
-  background: url("../images/coding2.jpg") no-repeat center center/cover;
+  background: url("../Images/coding2.jpg") no-repeat center center/cover;
 
   /* Remove previous section styles */
   margin-top: 0;
